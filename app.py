@@ -114,7 +114,7 @@ def generate_image(prompt):
 
 # Creators Information
 st.sidebar.markdown("## Created By:")
-st.sidebar.markdown("[Harshad](https://www.linkedin.com/in/harshadsuryawanshi)")
+st.sidebar.markdown("[Harshad Suryawanshi](https://www.linkedin.com/in/harshadsuryawanshi)")
 
 st.sidebar.markdown("## Disclaimer")
 st.sidebar.markdown("""
@@ -123,10 +123,10 @@ Please note that the AI-driven story generator currently utilizes a Language Mod
 
 st.title('Story Generator')
 
-characters = st.text_input("Enter the characters for the story:", "A rabbit and a tortoise")
-age = st.number_input("Enter the target audience age:", min_value=0, max_value=100, step=1, value=7)
-moral = st.text_input("Enter the moral of the story:")
-model_choice = st.selectbox("Choose the model for story generation", ["OpenAssistant LLM", "OpenAI"])
+characters = st.text_input("Enter the characters for the story:", "A brother Ryan and sister Tia")
+age = st.number_input("Enter the target audience age:", min_value=0, max_value=100, step=1, value=10)
+moral = st.text_input("Enter the moral of the story:", "siblings should not fight with each other")
+model_choice = st.selectbox("Choose the model for story generation", ["OpenAssistant LLM", "OpenAI GPT 3.5"])
 
 if st.button('Generate Story'):
     if characters and age and moral:
@@ -135,7 +135,7 @@ if st.button('Generate Story'):
             for i in range(100):
                 time.sleep(0.01)  # This is just to simulate the process taking time
                 progress_bar.progress(i)
-            if model_choice == "OpenAI":
+            if model_choice == "OpenAI GPT 3.5":
                 story = generate_story_openai(characters, age, moral)
                 image = generate_image(characters)
                 st.image(image, use_column_width=True)  # Display the generated image
