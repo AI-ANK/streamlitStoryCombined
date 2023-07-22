@@ -137,6 +137,8 @@ if st.button('Generate Story'):
                 progress_bar.progress(i)
             if model_choice == "OpenAI":
                 story = generate_story_openai(characters, age, moral)
+                image = generate_image(characters)
+                st.image(image, use_column_width=True)  # Display the generated image
             else:
                 story = generate_story_huggingface(characters, age, moral)
                 image = generate_image(characters)
