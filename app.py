@@ -97,7 +97,7 @@ def generate_story_huggingface(characters, age, moral):
 
 def generate_image(prompt):
     API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-0.9"
-    API_URL = "https://api-inference.huggingface.co/models/SG161222/Realistic_Vision_V1.4"
+    API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2-1"
     api_token = st.secrets["nothin"]
     headers = {"Authorization": f"Bearer {api_token}"}
     
