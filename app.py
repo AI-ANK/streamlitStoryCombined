@@ -39,7 +39,8 @@ def generate_story_huggingface(characters, age, moral):
     moral = html.escape(moral)
     
     prompt = f" Write a 150 words story about {characters}, for an audience around {age} years old, with a moral that {moral}. Just write the story with moral in the end and nothing more, do not write any extra text."
-
+    prompt = f"<|prompter|> Write a 150 words story about {characters}, for an audience around {age} years old, with a moral that {moral}. Just write the story with moral in the end and nothing more, do not write any extra text.<|endoftext|><|assistant|>"
+    
     # Set the model id and API URL
     model_id = "OpenAssistant/oasst-sft-1-pythia-12b"
     model_id = "OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5"
