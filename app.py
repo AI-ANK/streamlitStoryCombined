@@ -140,7 +140,7 @@ if st.button('Generate Story'):
                 image = generate_image(characters)
             progress_bar.empty() 
         st.markdown(story)
-        if model_choice == "HuggingFace":
+        if model_choice == "OpenAssistant LLM":
             st.image(image, use_column_width=True)  # Display the generated image
     else:
         st.write('Please fill in all fields to generate a story.')
