@@ -135,16 +135,28 @@ if st.button('Generate Story'):
             for i in range(100):
                 time.sleep(0.01)  # This is just to simulate the process taking time
                 progress_bar.progress(i)
-            if model_choice == "OpenAI GPT 3.5":
-                story = generate_story_openai(characters, age, moral)
+            story = None
+            image = None
+            error = False
+            try:
+                if model_choice == "OpenAI GPT 3.5":
+                    story = generate_story_openai(characters, age, moral)
+                else:
+                    story = generate_story_huggingface(characters, age, moral)
+            except:
+                error = True
+                st.write('Failed to generate story text.')
+            try:
                 image = generate_image(characters)
+            except:
+                error = True
+                st.write('Failed to generate image.')
+            progress_bar.empty()
+            if story:
+                st.markdown(story)
+            if image:
                 st.image(image, use_column_width=True)  # Display the generated image
-            else:
-                story = generate_story_huggingface(characters, age, moral)
-                image = generate_image(characters)
-            progress_bar.empty() 
-        st.markdown(story)
-        if model_choice == "OpenAssistant LLM":
-            st.image(image, use_column_width=True)  # Display the generated image
+            if error:
+                st.write('App is facing some issues, please try again later.')
     else:
         st.write('Please fill in all fields to generate a story.')
