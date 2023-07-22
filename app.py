@@ -15,7 +15,7 @@ def generate_story_openai(characters, age, moral):
 
     openai.api_key = st.secrets["openai_key"]
     
-    prompt = f"Write a 200 words story about {characters}, for an audience around {age} years old, with a moral that {moral}."
+    prompt = f"Write a 165 words story about {characters}, for an audience around {age} years old, with a moral that {moral}."
 
     # Initialize the story
     story = ""
@@ -38,7 +38,7 @@ def generate_story_huggingface(characters, age, moral):
     characters = html.escape(characters)
     moral = html.escape(moral)
     
-    prompt = f" Write A story about {characters}, for an audience around {age} years old, with a moral that {moral}. Just write the story with moral in the end and nothing more, do not write any extra text."
+    prompt = f" Write a 150 words story about {characters}, for an audience around {age} years old, with a moral that {moral}. Just write the story with moral in the end and nothing more, do not write any extra text."
 
     # Set the model id and API URL
     model_id = "OpenAssistant/oasst-sft-1-pythia-12b"
