@@ -12,6 +12,8 @@ def generate_story_openai(characters, age, moral):
     # Combine the inputs into a prompt for the model
     characters = html.escape(characters)
     moral = html.escape(moral)
+
+    openai.api_key = st.secrets["openai_key"]
     
     prompt = f"Write a 200 words story about {characters}, for an audience around {age} years old, with a moral that {moral}."
 
