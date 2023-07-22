@@ -113,13 +113,12 @@ def generate_image(prompt):
     return image
 
 # Creators Information
-st.sidebar.markdown("## Creators")
-st.sidebar.markdown("[Chandni](https://www.linkedin.com/in/chandni-ramdasan-a7b1571a)")
+st.sidebar.markdown("## Created By:")
 st.sidebar.markdown("[Harshad](https://www.linkedin.com/in/harshadsuryawanshi)")
 
 st.sidebar.markdown("## Disclaimer")
 st.sidebar.markdown("""
-Please note that our AI-driven story generator currently utilizes an open-source Language Model (LLM). As with any AI tool, there may be instances where the generated content could be of lower quality or include unintended results. We encourage users to review the generated stories and exercise discretion.
+Please note that the AI-driven story generator currently utilizes a Language Model (LLM). As with any AI tool, there may be instances where the generated content could be of lower quality or include unintended results. Users are encouraged to review the generated stories and exercise discretion.
 """)
 
 st.title('Story Generator')
