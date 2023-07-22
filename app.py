@@ -36,7 +36,7 @@ def generate_story_huggingface(characters, age, moral):
     characters = html.escape(characters)
     moral = html.escape(moral)
     
-    prompt = f" Can you write a 200 words story story about {characters}, for an audience around {age} years old, with a moral that {moral}."
+    prompt = f" Can you write A story about {characters}, for an audience around {age} years old, with a moral that {moral}."
 
     # Set the model id and API URL
     model_id = "OpenAssistant/oasst-sft-1-pythia-12b"
@@ -56,8 +56,8 @@ def generate_story_huggingface(characters, age, moral):
     payload = {
         "inputs": prompt,
         "options": {
-            "max_length": 200,
-            "min_length":200,
+            "max_length": 500,
+            "min_length":100,
             "temperature": 0.9
         }
     }
@@ -66,7 +66,7 @@ def generate_story_huggingface(characters, age, moral):
     story = ""
 
     # Maximum number of words
-    max_words = 200
+    max_words = 500
 
     while True:
         # Update the inputs in the payload
@@ -119,8 +119,6 @@ st.sidebar.markdown("""
 Please note that our AI-driven story generator currently utilizes an open-source Language Model (LLM). As with any AI tool, there may be instances where the generated content could be of lower quality or include unintended results. We encourage users to review the generated stories and exercise discretion.
 """)
 
-
-
 st.title('Story Generator')
 
 characters = st.text_input("Enter the characters for the story:", "Fox and rabbit")
@@ -132,9 +130,9 @@ if st.button('Generate Story'):
     if characters and age and moral:
         with st.spinner('Generating Story...'):
             progress_bar = st.progress(0)
-            for i in range(200):
-                time.sleep(0.1)  # This is just to simulate the process taking time
-                progress_bar.progress(i + 1)
+            for i in range(100):
+                time.sleep(0.01)  # This is just to simulate the process taking time
+                progress_bar.progress(i)
             if model_choice == "OpenAI":
                 story = generate_story_openai(characters, age, moral)
             else:
