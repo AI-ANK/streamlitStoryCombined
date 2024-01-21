@@ -126,7 +126,7 @@ st.title('Story Generator')
 characters = st.text_input("Enter the characters for the story:", "A brother Ryan and sister Tia")
 age = st.number_input("Enter the target audience age:", min_value=0, max_value=100, step=1, value=10)
 moral = st.text_input("Enter the moral of the story:", "siblings should not fight with each other")
-model_choice = st.selectbox("Choose the model for story generation", ["OpenAssistant LLM", "OpenAI GPT 3.5"])
+model_choice = st.selectbox("Choose the model for story generation", ["OpenAssistant LLM"])
 
 if st.button('Generate Story'):
     if characters and age and moral:
